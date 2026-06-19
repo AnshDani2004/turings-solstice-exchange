@@ -16,7 +16,8 @@ Run `npm test`, `npm run lint`, and `npm run build` before release. The project 
 ## Game controls
 
 - Complete the five lessons in order (each can be replayed from home).
-- In market mode, read the signal, use Decode help or Hint if needed, then choose Tight, Balanced, or Wide.
+- In market mode, make a tactical call for any Solstice event, decode the signal, then preview and confirm a Tight, Balanced, or Wide quote.
+- Clear the daily score target before sunset. Signal matches build streak bonuses; manual decodes, good event calls, and the doubled-score Sunset Auction can swing a run.
 - Glossary and settings are available from the top-right controls.
 - Progress, settings, capped local event logs, and the current run are saved with `localStorage` on the player’s device.
 
@@ -61,9 +62,12 @@ Run `npm test`, `npm run lint`, and `npm run build` before release. The project 
 | Quote preview | Shows actual bid/ask and the risk trade-off before a spread is committed |
 | Guided decoder | Reveals one signal character at a time without taking the puzzle away |
 | Market-event strip | Adds Sun Flare, Thin Books, and Reversal Watch conditions |
+| Rival trader card | Explains how Blaze, Mara, or Cipher changes the round’s order flow |
+| Streak/target HUD | Makes the win condition and risk-reward loop visible throughout a run |
 | Execution ticker | Shows fills and quote used after a round |
 | Round summary | Relates outcome back to one teachable decision |
 | Sunset results | Final PnL, PnL-by-round chart, best decision, peak inventory risk, and coach note |
+| Achievement and skins | Unlocks Field Notes plus Sunrise Circuit and Cipher Mint terminal looks |
 | Glossary | Unlockable plain-English definitions |
 | Settings | Sound, motion, contrast, captions, and font scale preferences |
 
@@ -103,7 +107,8 @@ flowchart LR
 
 ## Implementation notes
 
-- The simulation is deterministic for a seed. Regimes, signals, special events, price shocks, fills, PnL, and score are reproducible in tests and demos.
+- The simulation is deterministic for a seed. Regimes, rivals, signals, special events, price shocks, fills, PnL, streak bonuses, and score are reproducible in tests and demos.
+- The game score layers on top of actual PnL: matching the signal builds a streak, a manual decode adds a bonus, tactical event calls can help or hurt, and the final Sunset Auction applies its round PnL a second time.
 - Quote generation applies a volatility-adjusted half-spread and an inventory skew. Positive inventory shifts quotes down slightly to encourage selling it down; negative inventory does the inverse.
 - Ciphers are intentionally kind: Binary is grouped eight-bit character codes, Caesar uses a fixed shift of 3, and logic clues are readable conditional rules.
 - Accessibility is designed into the DOM-first UI: semantic headings, real buttons/inputs, visible focus, 44px interactive controls, ARIA live status feedback, reduced-motion handling, high-contrast mode, and scalable text.

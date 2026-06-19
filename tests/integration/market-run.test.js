@@ -12,6 +12,7 @@ describe("eight-round market run", () => {
       expect(market.round).toBe(round);
       expect(market.lastRoundSummary.round).toBe(round);
       expect(market.lastRoundSummary.event).toHaveProperty("id");
+      expect(market.lastRoundSummary.rival).toHaveProperty("name");
       expect(market.roundHistory).toHaveLength(round);
       expect(Number.isFinite(market.totalPnL)).toBe(true);
     }

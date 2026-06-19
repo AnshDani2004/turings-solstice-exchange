@@ -43,7 +43,9 @@ export const initialState = () => ({
     completedLessons: [],
     unlockedLessons: [1],
     marketUnlocked: false,
-    glossaryUnlocked: []
+    glossaryUnlocked: [],
+    achievements: [],
+    unlockedSkins: ["midnight"]
   },
   settings: {
     soundOn: true,
@@ -51,7 +53,8 @@ export const initialState = () => ({
     reducedMotion: false,
     highContrast: false,
     fontScale: 1,
-    showCaptions: true
+    showCaptions: true,
+    terminalSkin: "midnight"
   },
   session: { sessionId: "", seed: 0, startedAt: 0, events: [] },
   tutorial: { currentLesson: 1, attempts: 0, lessonState: {} },
@@ -71,6 +74,12 @@ export const initialState = () => ({
     realisedPnL: 0,
     unrealisedPnL: 0,
     totalPnL: 0,
+    scoreBonus: 0,
+    auctionBonus: 0,
+    dailyTarget: 8,
+    streak: 0,
+    maxStreak: 0,
+    manualDecodes: 0,
     spreadMode: "balanced",
     quote: { bid: 98.9, ask: 101.1 },
     signal: { type: "logic", encoded: "", decoded: "" },
@@ -80,6 +89,9 @@ export const initialState = () => ({
     currentRegime: null,
     selectedSpread: null,
     decodeProgress: 0,
+    decodeMethod: null,
+    decodeAttempted: false,
+    eventDecision: null,
     lastRoundSummary: null,
     bestRound: null
   }
